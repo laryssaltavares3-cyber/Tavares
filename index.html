@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laryssa Tavares - Calçados e Bolsas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #550707bb;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #662355, #52032179);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #ff6bb5;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6bb5;
+        }
+        
+        .cart-icon {
+            background-color: #580404;
+            padding: 8px 12px;
+            border-radius: 50%;
+            color: white;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #770303b2;
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Banner */
+        .banner {
+            background: linear-gradient(rgba(235, 126, 198, 0.7), rgba(177, 85, 164, 0.7)), url("logo.JPG");
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner p {
+            font-size: 20px;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #640909;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #640909;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 4, 70, 0.658);
+        }
+        
+        /* Categorias */
+        .categories {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color:  #702b59;
+            position: relative;
+        }
+         
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #a11467;
+            margin: 15px auto;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(88, 12, 56, 0.781);
+            transition: transform 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .category-info {
+            padding: 20px;
+        }
+        
+        .category-info h3 {
+            margin-bottom: 10px;
+            color: #502c44;
+        }
+        
+        /* Produtos */
+        .products {
+            padding: 80px 0;
+            background-color: #f1f2f6;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(124, 25, 99, 0.788);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(131, 21, 98, 0.774);
+        }
+        
+        .product-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #46072e;
+        }
+        
+        .product-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 10px 0;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .buy-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-btn i {
+            margin-right: 8px;
+        }
+        
+        .buy-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Sobre e Redes Sociais */
+        .about {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: #570736;
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #ff6bb0;
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #702b59;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #8a2965;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #79265d;
+            color: #ccc;
+        }
+        
+        /* Modal do Carrinho */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #702b59;
+            color: white;
+        }
+        
+        .cart-header h2 {
+            margin: 0;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .quantity-btn {
+            background-color: #f1f2f6;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 2px;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .checkout-btn i {
+            margin-right: 10px;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .empty-cart i {
+            font-size: 50px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            .banner h1 {
+                font-size: 36px;
+            }
+            
+            .banner p {
+                font-size: 18px;
+            }
+            
+            .cart-modal {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .banner {
+                height: 400px;
+            }
+            
+            .banner h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-shoe-prints"></i>
+                Laryssa Tavares Calçados
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="./paginas/sapatosmasculinos.html">Masculino</a></li>
+                    <li><a href="./paginas/sapatosfemininos.html">Feminino</a></li>
+                    <li><a href="./paginas/sapatosinfantis.html">Infantil</a></li>
+                    <li><a href="./paginas/bolsas.html">Bolsas</a></li>
+                    <li><a href="#footer">Contato</a></li>
+                    <li>
+                        <a href="#" class="cart-icon" id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Estilo e Conforto para Todos os Momentos</h1>
+        <p>Descubra a nova coleção de calçados e bolsas com designs exclusivos e preços imperdíveis</p>
+        <a href="#products" class="btn">Ver Coleção</a>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Nossas Categorias</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='./paginas/sapatosmasculinos.html'">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-info">
+                        <h3>Calçados Masculinos</h3>
+                        <p>Estilo e conforto para homens</p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="window.location.href='./paginas/sapatosfemininos.html'">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-info">
+                        <h3>Calçados Femininos</h3>
+                        <p>Elegância e sofisticação</p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="window.location.href='./paginas/sapatosinfantis.html'">
+                    <div class="category-img" style="background-image: url(https://somostres.cdn.magazord.com.br/img/2022/11/blog/3268/1/postagem-full/mostrando-calcados-de-bebe.jpeg);"></div>
+                    <div class="category-info">
+                        <h3>Calçados Infantis</h3>
+                        <p>Conforto e diversão para crianças</p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="window.location.href='./paginas/bolsas.html'">
+                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-info">
+                        <h3>Bolsas</h3>
+                        <p>Acessórios para completar seu look</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Destaques</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://rmilet.vteximg.com.br/arquivos/ids/9180498-593-593/Sandalia-Vermelha-e-Azul-Kids-Homem-Aranha-com-Acessorios-%7C-Grendene-Tamanho--23---Cor--AZUL-0.jpg?v=638856659659830000);"></div>
+                    <div class="product-info">
+                        <h3>Percata homem aranha</h3>
+                        <p>kit percata+helicoptero</p>
+                        <div class="product-price">R$ 149,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="1" data-name="Percata homem aranha" data-price="149.90" data-image="https://rmilet.vteximg.com.br/arquivos/ids/9180498-593-593/Sandalia-Vermelha-e-Azul-Kids-Homem-Aranha-com-Acessorios-%7C-Grendene-Tamanho--23---Cor--AZUL-0.jpg?v=638856659659830000">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://d87n9o45kphpy.cloudfront.net/Custom/Content/Products/28/63/2863698_sandalia-infantil-grendene-kids-brinde-bolsa-do-stitch-azul-5207362_m1_638936973985609555.webp);"></div>
+                    <div class="product-info">
+                        <h3>Sandália Moana</h3>
+                        <p>kit sandália+bolsa</p>
+                        <div class="product-price">R$ 139,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="2" data-name="Sandália Moana" data-price="139.90" data-image="https://d87n9o45kphpy.cloudfront.net/Custom/Content/Products/28/63/2863698_sandalia-infantil-grendene-kids-brinde-bolsa-do-stitch-azul-5207362_m1_638936973985609555.webp">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://grupooscar.vteximg.com.br/arquivos/ids/2727006/17230397375485.jpg?v=638882689018700000);"></div>
+                    <div class="product-info">
+                        <h3>Sapato Social </h3>
+                        <p>kit sapato+carteira+cinto</p>
+                        <div class="product-price">R$ 149,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="3" data-name="Sapato Social" data-price="149.90" data-image="https://grupooscar.vteximg.com.br/arquivos/ids/2727006/17230397375485.jpg?v=638882689018700000">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://cloviscalcados.vteximg.com.br/arquivos/ids/696849/Kit-Chinelo-Necessaire-Versalhes-Cartago-11873-3291873_042-01.jpg?v=637682799739170000);"></div>
+                    <div class="product-info">
+                        <h3>Sandália Grendene</h3>
+                        <p>kit chinelo masculino+necessaire versalhes</p>
+                        <div class="product-price">R$ 139,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="4" data-name="Sandália Grendene" data-price="139.90" data-image="https://cloviscalcados.vteximg.com.br/arquivos/ids/696849/Kit-Chinelo-Necessaire-Versalhes-Cartago-11873-3291873_042-01.jpg?v=637682799739170000">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://acdn-us.mitiendanube.com/stores/002/549/791/products/a-102-006-191-1ae96f4dbfb684afec17575232194259-1024-1024.webp?w=1920);"></div>
+                    <div class="product-info">
+                        <h3>Sandália Infantil</h3>
+                        <p>kit sandália+bolsa</p>
+                        <div class="product-price">R$ 129,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="5" data-name="Sandália Infantil" data-price="129.90" data-image="https://acdn-us.mitiendanube.com/stores/002/549/791/products/a-102-006-191-1ae96f4dbfb684afec17575232194259-1024-1024.webp?w=1920">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url(https://static.dafiti.com.br/p/Selten-Kit-Bolsa-Feminina-M%C3%A9dia-+-Bolsa-Transversal-Al%C3%A7a-De-Corrente-com-Carteira-Selten-Preta-2878-3063564-1-zoom.jpg)"></div>
+                    <div class="product-info">
+                        <h3>Bolsas</h3>
+                        <p>kit bolsa ombro+bolsa lateral+carteira</p>
+                        <div class="product-price">R$ 199,90</div>
+                        <div class="product-actions">
+                            <button class="buy-btn" data-id="6" data-name="Bolsas" data-price="199.90" data-image="https://static.dafiti.com.br/p/Selten-Kit-Bolsa-Feminina-M%C3%A9dia-+-Bolsa-Transversal-Al%C3%A7a-De-Corrente-com-Carteira-Selten-Preta-2878-3063564-1-zoom.jpg">
+                                <i class="fas fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre e Redes Sociais -->
+    <section id="footer" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a Laryssa Tavares</h2>
+            <p>Desde 2025, a Laryssa Tavares oferece os melhores calçados e acessórios para homens, mulheres e crianças. Nossa missão é proporcionar conforto, qualidade e estilo para todos os momentos da sua vida.</p>
+            <p>Entre em contato conosco através das nossas redes sociais ou via WhatsApp para fazer seu pedido!</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer >
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Laryssa Tavares</h3>
+                    <p>Loja especializada em calçados e bolsas para todos os gostos e estilos.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="#">Início</a>
+                    <a href="./paginas/sapatosmasculinos.html">Masculino</a>
+                    <a href="./paginas/sapatosfemininos.html">Feminino</a>
+                    <a href="./paginas/sapatosinfantis.html">Infantil</a>
+                    <a href="./paginas/bolsas.html">Bolsas</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Tv. breves, 333</p>
+                    <p><i class="fas fa-phone"></i> (91) 99195-6032</p>
+                    <p><i class="fas fa-envelope"></i> laryssaltavares3@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Laryssa Tavares - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h2>Meu Carrinho</h2>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Itens do carrinho serão inseridos aqui dinamicamente -->
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">R$ 0,00</span>
+            </div>
+            <div class="summary-row">
+                <span>Frete:</span>
+                <span>R$ 15,00</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 15,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fab fa-whatsapp"></i> Finalizar Pedido
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Variáveis globais
+        let cart = [];
+        const cartModal = document.getElementById('cart-modal');
+        const overlay = document.getElementById('overlay');
+        const cartIcon = document.getElementById('cart-icon');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Abrir carrinho
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fechar carrinho
+        closeCart.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Fechar carrinho ao clicar no overlay
+        overlay.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Adicionar produto ao carrinho
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                const image = this.getAttribute('data-image');
+                
+                addToCart(id, name, price, image);
+                
+                // Feedback visual
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+                this.style.backgroundColor = '#128C7E';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = '#25D366';
+                }, 1500);
+            });
+        });
+
+        // Função para adicionar item ao carrinho
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+        }
+
+        // Função para remover item do carrinho
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+
+        // Função para atualizar quantidade
+        function updateQuantity(id, quantity) {
+            if (quantity <= 0) {
+                removeFromCart(id);
+                return;
+            }
+            
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = quantity;
+                updateCart();
+            }
+        }
+
+        // Função para atualizar o carrinho
+        function updateCart() {
+            // Atualizar contador
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Atualizar itens do carrinho
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Seu carrinho está vazio</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-img" style="background-image: url(${item.image})"></div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+                            <div class="cart-item-controls">
+                                <button class="quantity-btn minus" data-id="${item.id}"><i class="fas fa-minus"></i></button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                                <button class="quantity-btn plus" data-id="${item.id}"><i class="fas fa-plus"></i></button>
+                                <button class="remove-btn" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                    cartItems.appendChild(itemElement);
+                });
+                
+                // Adicionar event listeners para os controles de quantidade
+                document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        if (item) {
+                            updateQuantity(id, item.quantity - 1);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        if (item) {
+                            updateQuantity(id, item.quantity + 1);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-input').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const id = this.getAttribute('data-id');
+                        updateQuantity(id, parseInt(this.value));
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        removeFromCart(id);
+                    });
+                });
+            }
+            
+            // Atualizar totais
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + 15; // Frete fixo de R$ 15,00
+            
+            cartSubtotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Finalizar pedido via WhatsApp
+        checkoutBtn.addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            let message = 'Olá! Gostaria de finalizar meu pedido com os seguintes itens:\n\n';
+            
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+            });
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + 15;
+            
+            message += `\nSubtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            message += `\nFrete: R$ 15,00`;
+            message += `\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            // Número de WhatsApp
+            const phone = '(91)99195-6032';
+            
+            // Codificar a mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Abrir o WhatsApp
+            window.open(`https://wa.me/${5591991956032}?text=${encodedMessage}`, '_blank');
+        });
+
+        // Inicializar carrinho
+        updateCart();
+    </script>
+</body>
+</html>
