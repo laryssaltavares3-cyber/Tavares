@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sapatos Masculinos - Loja</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #550707bb;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #662355, #52032179);
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+      color: #ff6bb5;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 25px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    
+    nav ul li a:hover {
+      color: #ff6bb5;
+    }
+    
+    .cart-icon {
+      background-color: #580404;
+      padding: 8px 12px;
+      border-radius: 50%;
+      color: white;
+      position: relative;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #770303b2;
+      color: white;
+      font-size: 12px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Banner */
+    .banner {
+      background: linear-gradient(rgba(235, 126, 198, 0.7), rgba(177, 85, 164, 0.7)), url("logo.JPG");
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+    
+    .banner h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .banner p {
+      font-size: 18px;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+    
+    /* Produtos */
+    .products {
+      padding: 40px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      color: #702b59;
+      position: relative;
+    }
+     
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #a11467;
+      margin: 15px auto;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(124, 25, 99, 0.788);
+      transition: all 0.3s;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(131, 21, 98, 0.774);
+    }
+    
+    .product-img {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-info h3 {
+      margin-bottom: 10px;
+      color: #46072e;
+    }
+    
+    .product-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff6b6b;
+      margin: 10px 0;
+    }
+    
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    
+    .buy-btn {
+      background-color: #ff6bb5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s;
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .buy-btn i {
+      margin-right: 8px;
+    }
+    
+    .buy-btn:hover {
+      background-color: #e0559e;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #702b59;
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    
+    .footer-section p, .footer-section a {
+      color: #ccc;
+      margin-bottom: 10px;
+      display: block;
+      text-decoration: none;
+    }
+    
+    .footer-section a:hover {
+      color: #ff6bb5;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #79265d;
+      color: #ccc;
+    }
+
+    /* Modal do Carrinho */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #702b59;
+      color: white;
+    }
+    
+    .cart-header h2 {
+      margin: 0;
+    }
+    
+    .close-cart {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .cart-items {
+      padding: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+    
+    .cart-item-details {
+      flex: 1;
+    }
+    
+    .cart-item-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .cart-item-price {
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+    
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .quantity-btn {
+      background-color: #f1f2f6;
+      border: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      margin: 0 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2px;
+    }
+    
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #ff6b6b;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    
+    .cart-summary {
+      padding: 20px;
+      border-top: 1px solid #eee;
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .summary-total {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .checkout-btn i {
+      margin-right: 10px;
+    }
+    
+    .empty-cart {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    
+    .empty-cart i {
+      font-size: 50px;
+      color: #ddd;
+      margin-bottom: 15px;
+    }
+    
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+      }
+      
+      nav ul {
+        margin-top: 20px;
+      }
+      
+      .banner h1 {
+        font-size: 28px;
+      }
+      
+      .banner p {
+        font-size: 16px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .cart-modal {
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      nav ul li {
+        margin-left: 15px;
+      }
+      
+      .banner {
+        height: 250px;
+      }
+      
+      .banner h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-shoe-prints"></i>
+        Laryssa Tavares Calçados
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="./sapatosmasculinos.html">Masculino</a></li>
+          <li><a href="./sapatosfemininos.html">Feminino</a></li>
+          <li><a href="./sapatosinfantis.html">Infantil</a></li>
+          <li><a href="./bolsas.html">Bolsas</a></li>
+          <li><a href="#footer">Contato</a></li>
+          <li>
+            <a href="#" class="cart-icon" id="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h1>Sapatos Masculinos</h1>
+    <p>Descubra nossa coleção exclusiva de calçados masculinos</p>
+  </section>
+
+  <!-- Produtos -->
+  <section class="products">
+    <div class="container">
+      <h2 class="section-title">Nossos Sapatos Masculinos</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://img.irroba.com.br/fit-in/700x700/filters:fill(fff):quality(80)/lojakeff/catalog/trento/trento-19800-7901m-3.jpg');"></div>
+          <div class="product-info">
+            <h3>Sapato Social</h3>
+            <p>Elegante e confortável para ocasiões formais</p>
+            <div class="product-price">R$ 148,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="1" data-name="Sapato Social" data-price="148.00" data-image="https://img.irroba.com.br/fit-in/700x700/filters:fill(fff):quality(80)/lojakeff/catalog/trento/trento-19800-7901m-3.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://images.tcdn.com.br/img/img_prod/770541/chinelo_cartago_arizona_slide_masculino_12393_62922_variacao_494580_1_9d7ec122ac8210323e978302a8495d6b.jpg);"></div>
+          <div class="product-info">
+            <h3>Tênis Casual</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 178,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="2" data-name="Tênis Casual" data-price="178.00" data-image="https://images.tcdn.com.br/img/img_prod/770541/chinelo_cartago_arizona_slide_masculino_12393_62922_variacao_494580_1_9d7ec122ac8210323e978302a8495d6b.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://webasicbrasil.com.br/cdn/shop/products/Sapato_Masculino_Derby_Winchester_Camur_a.jpg?v=1725373011);"></div>
+          <div class="product-info">
+            <h3>Sapato Derby</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 178,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="3" data-name="Sapato Derby" data-price="178.00" data-image="https://webasicbrasil.com.br/cdn/shop/products/Sapato_Masculino_Derby_Winchester_Camur_a.jpg?v=1725373011">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://static.netshoes.com.br/produtos/tenis-slip-on-iate-estilo-shoes-masculino-couro-confortavel-calce-facil/38/4X9-0131-138/4X9-0131-138_zoom1.jpg?ts=1741196488);"></div>
+          <div class="product-info">
+            <h3>Tênis Slip-On</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 178,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="4" data-name="Tênis Slip-On" data-price="178.00" data-image="https://static.netshoes.com.br/produtos/tenis-slip-on-iate-estilo-shoes-masculino-couro-confortavel-calce-facil/38/4X9-0131-138/4X9-0131-138_zoom1.jpg?ts=1741196488">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images-americanas.b2w.io/produtos/5187146615/imagens/2021-sapatos-casuais-masculinos-de-pouco-peso-respiravel-sapatos-masculinos-planos-de-renda-tenis-masculino-homem-tenis-branco-vulcanizado-sapatos-de-viagem/5187147239_1_large.jpg');"></div>
+          <div class="product-info">
+            <h3>Tênis Casual Branco</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 178,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="5" data-name="Tênis Casual Branco" data-price="178.00" data-image="https://images-americanas.b2w.io/produtos/5187146615/imagens/2021-sapatos-casuais-masculinos-de-pouco-peso-respiravel-sapatos-masculinos-planos-de-renda-tenis-masculino-homem-tenis-branco-vulcanizado-sapatos-de-viagem/5187147239_1_large.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://www.kompletacalcados.com.br/16998-large_default/tenis-masculino-nike-downshifter-13--pretobranco-fd6454001.jpg);"></div>
+          <div class="product-info">
+            <h3>Tênis Nike</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 178,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="6" data-name="Tênis Nike" data-price="178.00" data-image="https://www.kompletacalcados.com.br/16998-large_default/tenis-masculino-nike-downshifter-13--pretobranco-fd6454001.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://distcoimbra.vteximg.com.br/arquivos/ids/204535-1000-1000/sandalia-de-dedo-cartago-siena-iv-masculina-marrom-amarelo-12398bd7140390-1.jpg);"></div>
+          <div class="product-info">
+            <h3>Sandália Cartago</h3>
+            <p>Conforto e estilo para o dia a dia</p>
+            <div class="product-price">R$ 79,90</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="7" data-name="Sandália Cartago" data-price="79.90" data-image="https://distcoimbra.vteximg.com.br/arquivos/ids/204535-1000-1000/sandalia-de-dedo-cartago-siena-iv-masculina-marrom-amarelo-12398bd7140390-1.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://akapanda.com.br/wp-content/uploads/2023/07/bota-masculina-cano-alto-bota-masculina-bota-masculino-cano-alto-coturno-masculino-botina-masculina-botas-masculinas-botinas-masculinas-coturno-militar-masculino-aka-panda-2.jpg');"></div>
+          <div class="product-info">
+            <h3>Bota Masculina</h3>
+            <p>Estilo e durabilidade para qualquer ocasião</p>
+            <div class="product-price">R$ 198,00</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="8" data-name="Bota Masculina" data-price="198.00" data-image="https://akapanda.com.br/wp-content/uploads/2023/07/bota-masculina-cano-alto-bota-masculina-bota-masculino-cano-alto-coturno-masculino-botina-masculina-botas-masculinas-botinas-masculinas-coturno-militar-masculino-aka-panda-2.jpg">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-img" style="background-image: url(https://cloviscalcados.vteximg.com.br/arquivos/ids/1122862/Sandalia-Veneto-Cartago-12040-3292040_007-01.jpg?v=638575377459630000);"></div>
+          <div class="product-info">
+            <h3>Sandália Veneto</h3>
+            <p>Conforto e praticidade para momentos descontraídos</p>
+            <div class="product-price">R$ 129,90</div>
+            <div class="product-actions">
+              <button class="buy-btn" data-id="9" data-name="Sandália Veneto" data-price="129.90" data-image="https://cloviscalcados.vteximg.com.br/arquivos/ids/1122862/Sandalia-Veneto-Cartago-12040-3292040_007-01.jpg?v=638575377459630000">
+                <i class="fas fa-cart-plus"></i> Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Laryssa Tavares</h3>
+          <p>Loja especializada em calçados e bolsas para todos os gostos e estilos.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Links Rápidos</h3>
+          <a href="index.html">Início</a>
+          <a href="sapatosmasculinos.html">Masculino</a>
+          <a href="sapatosfemininos.html">Feminino</a>
+          <a href="sapatosinfantis.html">Infantil</a>
+          <a href="bolsas.html">Bolsas</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Tv. breves, 333</p>
+          <p><i class="fas fa-phone"></i> (91) 99195-6032</p>
+          <p><i class="fas fa-envelope"></i> laryssaltavares3@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Laryssa Tavares - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal do Carrinho -->
+  <div class="overlay" id="overlay"></div>
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-header">
+      <h2>Meu Carrinho</h2>
+      <button class="close-cart" id="close-cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Itens do carrinho serão inseridos aqui dinamicamente -->
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">R$ 0,00</span>
+      </div>
+      <div class="summary-row">
+        <span>Frete:</span>
+        <span>R$ 15,00</span>
+      </div>
+      <div class="summary-row summary-total">
+        <span>Total:</span>
+        <span id="cart-total">R$ 15,00</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-shopping-cart"></i> Finalizar Pedido
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Variáveis globais
+    let cart = [];
+    const cartModal = document.getElementById('cart-modal');
+    const overlay = document.getElementById('overlay');
+    const cartIcon = document.getElementById('cart-icon');
+    const closeCart = document.getElementById('close-cart');
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartSubtotal = document.getElementById('cart-subtotal');
+    const cartTotal = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    // Carregar carrinho do localStorage
+    function loadCart() {
+      const savedCart = localStorage.getItem('laryssaTavaresCart');
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+      }
+    }
+
+    // Salvar carrinho no localStorage
+    function saveCart() {
+      localStorage.setItem('laryssaTavaresCart', JSON.stringify(cart));
+    }
+
+    // Abrir carrinho
+    cartIcon.addEventListener('click', (e) => {
+      e.preventDefault();
+      cartModal.style.display = 'block';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Fechar carrinho
+    closeCart.addEventListener('click', () => {
+      cartModal.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Fechar carrinho ao clicar no overlay
+    overlay.addEventListener('click', () => {
+      cartModal.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Adicionar produto ao carrinho
+    document.querySelectorAll('.buy-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        const image = this.getAttribute('data-image');
+        
+        addToCart(id, name, price, image);
+        
+        // Feedback visual
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+        this.style.backgroundColor = '#128C7E';
+        
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.style.backgroundColor = '#ff6bb5';
+        }, 1500);
+      });
+    });
+
+    // Função para adicionar item ao carrinho
+    function addToCart(id, name, price, image) {
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id,
+          name,
+          price,
+          image,
+          quantity: 1
+        });
+      }
+      
+      updateCart();
+      saveCart();
+    }
+
+    // Função para remover item do carrinho
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCart();
+      saveCart();
+    }
+
+    // Função para atualizar quantidade
+    function updateQuantity(id, quantity) {
+      if (quantity <= 0) {
+        removeFromCart(id);
+        return;
+      }
+      
+      const item = cart.find(item => item.id === id);
+      if (item) {
+        item.quantity = quantity;
+        updateCart();
+        saveCart();
+      }
+    }
+
+    // Função para atualizar o carrinho
+    function updateCart() {
+      // Atualizar contador
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      // Atualizar itens do carrinho
+      cartItems.innerHTML = '';
+      
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Seu carrinho está vazio</p>
+          </div>
+        `;
+      } else {
+        cart.forEach(item => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'cart-item';
+          itemElement.innerHTML = `
+            <div class="cart-item-img" style="background-image: url(${item.image})"></div>
+            <div class="cart-item-details">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+              <div class="cart-item-controls">
+                <button class="quantity-btn minus" data-id="${item.id}"><i class="fas fa-minus"></i></button>
+                <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                <button class="quantity-btn plus" data-id="${item.id}"><i class="fas fa-plus"></i></button>
+                <button class="remove-btn" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          `;
+          cartItems.appendChild(itemElement);
+        });
+        
+        // Adicionar event listeners para os controles de quantidade
+        document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            if (item) {
+              updateQuantity(id, item.quantity - 1);
+            }
+          });
+        });
+        
+        document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            if (item) {
+              updateQuantity(id, item.quantity + 1);
+            }
+          });
+        });
+        
+        document.querySelectorAll('.quantity-input').forEach(input => {
+          input.addEventListener('change', function() {
+            const id = this.getAttribute('data-id');
+            updateQuantity(id, parseInt(this.value));
+          });
+        });
+        
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            removeFromCart(id);
+          });
+        });
+      }
+      
+      // Atualizar totais
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const total = subtotal + 15; // Frete fixo de R$ 15,00
+      
+      cartSubtotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Finalizar pedido via WhatsApp
+    checkoutBtn.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+      
+      let message = 'Olá! Gostaria de finalizar meu pedido com os seguintes itens:\n\n';
+      
+      cart.forEach(item => {
+        message += `- ${item.name} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+      });
+      
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const total = subtotal + 15;
+      
+      message += `\nSubtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      message += `\nFrete: R$ 15,00`;
+      message += `\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
+      
+      // Número de WhatsApp
+      const phone = '5591991956032';
+      
+      // Codificar a mensagem para URL
+      const encodedMessage = encodeURIComponent(message);
+      
+      // Abrir o WhatsApp
+      window.open(`https://wa.me/${5591991956032}?text=${encodedMessage}`, '_blank');
+    });
+
+    // Inicializar carrinho
+    loadCart();
+  </script>
+</body>
+</html>
